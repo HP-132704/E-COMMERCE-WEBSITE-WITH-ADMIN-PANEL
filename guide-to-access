@@ -1,0 +1,86 @@
+📦 FOLDER STRUCTURE
+
+e-commerce-website-with-admin-panel/
+├── e-commerce/ # Project settings
+├── shop/ # Main app with models, views, templates
+├── static/ # Static files (CSS, JS, images)
+├── templates/ # HTML templates
+├── media/ # Uploaded product images
+├── db.sqlite3 # Database
+├── Pipfile # Dependencies
+└── manage.py # Django management script
+
+---
+
+🚀 Getting Started
+
+Follow these steps to run this project locally.
+
+---
+
+1️⃣ Clone the Repository
+
+git clone https://github.com/harishankar/e-commerce-website-with-admin-panel.git
+cd e-commerce-website-with-admin-panel
+
+---
+
+2️⃣ Create and Activate a Virtual Environment
+
+python -m venv venv
+
+For Windows:
+venv\Scripts\activate
+
+For macOS/Linux:
+source venv/bin/activate
+
+---
+
+3️⃣ Install Required Packages
+
+pip install -r requirements.txt
+
+---
+
+4️⃣ Run Migrations
+
+python manage.py makemigrations
+python manage.py migrate
+
+---
+
+5️⃣ Create a Superuser for Admin Access
+
+python manage.py createsuperuser
+
+---
+
+6️⃣ Run the Server
+
+python manage.py runserver
+Now open your browser and go to http://127.0.0.1:8000/
+
+---
+
+🔐 Admin Access
+
+Visit: http://127.0.0.1:8000/admin
+
+Log in using the superuser credentials you created above
+
+From here, you can manage products, categories, users, and orders
+
+---
+
+📚 Future Enhancements
+
+✅ Product search functionality
+
+✅ Payment gateway integration (Razorpay/Stripe)
+
+✅ Email notifications on order
+
+✅ Product ratings and reviews
+
+✅ REST API support for frontend frameworks or mobile apps
