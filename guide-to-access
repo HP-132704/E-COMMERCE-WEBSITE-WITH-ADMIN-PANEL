@@ -12,7 +12,7 @@ e-commerce-website-with-admin-panel/
 
 ---
 
-🚀 Getting Started
+🚀 GETTING STARTED
 
 Follow these steps to run this project locally.
 
@@ -63,7 +63,7 @@ Now open your browser and go to http://127.0.0.1:8000/
 
 ---
 
-🔐 Admin Access
+🔐 ADMIN ACCESS
 
 Visit: http://127.0.0.1:8000/admin
 
@@ -73,14 +73,12 @@ From here, you can manage products, categories, users, and orders
 
 ---
 
-📚 Future Enhancements
+📚 FUTURE ENHANCEMENT
 
 ✅ Product search functionality
-
 ✅ Payment gateway integration (Razorpay/Stripe)
-
 ✅ Email notifications on order
-
 ✅ Product ratings and reviews
-
 ✅ REST API support for frontend frameworks or mobile apps
+
+---
