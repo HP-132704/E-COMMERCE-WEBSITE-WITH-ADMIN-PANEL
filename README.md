@@ -4,7 +4,10 @@
 ![Mobile Responsive](https://img.shields.io/badge/Mobile%20Responsive-Yes-brightgreen)
 ![Status](https://img.shields.io/badge/Project-Complete-success)
 
-A fully functional and responsive **E-Commerce Website** built with **Django**, featuring a modern **Admin Panel** to manage products, users, orders, and categories. Ideal for learning full-stack development with Python and Django.
+A powerful and feature-rich **E-Commerce Website** built using **Django**. It offers a seamless shopping experience for customers along with a robust and secure **Admin Panel** for store management. The platform allows users to browse products, add them to the cart, place orders, and view order history. On the admin side, the site provides complete control over product listings, user management, order tracking, and category organization.
+
+Designed with modern web development standards, this project is ideal for learning or showcasing full-stack development using Python, Django, and Bootstrap.
+
 
 ---
 
@@ -12,9 +15,12 @@ A fully functional and responsive **E-Commerce Website** built with **Django**, 
 
 Home Page
 
+
 ![image](https://github.com/user-attachments/assets/c56a8267-cd02-4d97-8acf-85a1bca0d8ee)
 
+
 Admin Page
+
 
 ![image](https://github.com/user-attachments/assets/2e6b47b0-4a49-48c6-85e8-e6f4dc924c35)
 
