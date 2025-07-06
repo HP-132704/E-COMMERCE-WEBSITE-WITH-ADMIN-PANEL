@@ -1,4 +1,4 @@
-🛒 E-Commerce Website with Admin Panel
+🛒 E-COMMERCE WEBSITE WITH ADMIN PANEL
 
 ![Built with Django](https://img.shields.io/badge/Built%20with-Django-blue)
 ![Mobile Responsive](https://img.shields.io/badge/Mobile%20Responsive-Yes-brightgreen)
@@ -8,7 +8,7 @@ A fully functional and responsive **E-Commerce Website** built with **Django**, 
 
 ---
 
-📸 Screenshots
+📸 SCREENSHOTS
 
 Home Page
 
@@ -20,7 +20,7 @@ Admin Page
 
 ---
 
-✨ Features
+✨ FEATURES
 
 👥 User Side:
 - User registration and login system
@@ -37,7 +37,7 @@ Admin Page
 
 ---
 
-🧰 Tech Stack
+🧰 TECH STACK
 
 | Technology | Description               |
 |------------|---------------------------|
