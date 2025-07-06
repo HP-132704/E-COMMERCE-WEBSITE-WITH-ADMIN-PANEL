@@ -1,0 +1,42 @@
+{% load static %}
+
+<!-- Full-width Carousel -->
+<div class="container mt-5 pt-5 pt-5">  <!-- Full width and no padding -->
+  <div id="carouselExampleIndicators"
+       class="carousel slide rounded-0 shadow"
+       data-bs-ride="carousel"
+       data-bs-interval="3000"
+       data-bs-pause="hover">
+
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+              class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+    </div>
+
+    <!-- Carousel Slides -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/1.jpg' %}" class="d-block w-100" alt="Slide 1">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/2.png' %}" class="d-block w-100" alt="Slide 2">
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button"
+            data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button"
+            data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+</div>

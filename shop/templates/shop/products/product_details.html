@@ -1,0 +1,139 @@
+{% extends 'shop/layouts/main.html' %}
+{% load static %}
+{% block title %}
+ShopKart | {{ product.name }} Details
+{% endblock title %}
+
+{% block content %}
+<section class="bg-light py-4 my-5" style="min-height:600px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">{{ product.name }} Details</h4>
+        <hr style="border-color:#b8bfc2;">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'collection_by_name' product.category.name %}">Collections</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+          </ol>
+        </nav>
+        {% include 'shop/inc/message.html' %}
+      </div>
+      <div class="col-4 my-3 pic-box">
+        {% if product.trending %}
+          <div class="hot">Hot</div>
+        {% endif %}
+        <img src="{% if product.product_image %}{{ product.product_image.url }}{% else %}{% static 'images/default.jpg' %}{% endif %}" 
+             class="card-image-top product-image" 
+             alt="{{ product.name }}">
+      </div>
+      <div class="col-8 my-3">
+        <h5 class="text-success">{{ product.name|upper }}</h5>
+        <p>{{ product.vendor }}</p>
+        <p>{{ product.description }}</p>
+        <h6 class="my-2 text-danger">Current Price: Rs. <s>{{ product.original_price }}</s></h6>
+        <h5 class="my-2 text-primary">Offer Price: Rs. {{ product.selling_price }}</h5>
+        <div class="my-3">
+          {% if product.quantity > 0 %}
+            <input type="hidden" value="{{ product.id }}" id="pid">
+            <p>
+              <div class="input-group" style="width:150px">
+                <button class="input-group-text bg-success text-light" id="btnMinus"><i class="fa fa-minus"></i></button>
+                <input type="text" name="qty" id="txtQty" value="1" class="form-control text-center">
+                <button class="input-group-text bg-success text-light" id="btnPlus"><i class="fa fa-plus"></i></button>
+              </div>
+            </p>
+            <button class="btn btn-primary" id="btnCart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+          {% else %}
+            <button class="btn btn-secondary"><i class="fa fa-minus"></i> Out of Stock</button>
+          {% endif %}
+          <button class="btn btn-danger" id="btnFav"><i class="fa fa-heart"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSRF Token Setup -->
+<script>
+  const csrftoken = '{{ csrf_token }}';
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  // Quantity controls
+  const btnPlus = document.getElementById("btnPlus");
+  const btnMinus = document.getElementById("btnMinus");
+  const txtQty = document.getElementById("txtQty");
+
+  btnPlus?.addEventListener("click", function() {
+    let qty = parseInt(txtQty.value, 10) || 0;
+    if(qty < 10) qty++;
+    txtQty.value = qty;
+  });
+
+  btnMinus?.addEventListener("click", function() {
+    let qty = parseInt(txtQty.value, 10) || 0;
+    if(qty > 1) qty--;
+    txtQty.value = qty;
+  });
+
+  // Add to Cart functionality
+  document.getElementById("btnCart")?.addEventListener("click", function() {
+    const qty = parseInt(txtQty.value, 10) || 0;
+    if(qty > 0) {
+      fetch("{% url 'add_to_cart' %}", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken
+        },
+        body: JSON.stringify({
+          'product_qty': qty,
+          'pid': document.getElementById("pid").value
+        })
+      })
+      .then(response => {
+        if (response.redirected) {
+          window.location.href = response.url;
+          return;
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data) alert(data.status);
+      })
+      .catch(error => console.error('Error:', error));
+    } else {
+      alert("Please enter a valid quantity");
+    }
+  });
+
+  // Add to Favorites functionality
+  document.getElementById("btnFav")?.addEventListener("click", function() {
+    fetch("{% url 'fav_product' %}", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken
+      },
+      body: JSON.stringify({
+        'pid': document.getElementById("pid").value
+      })
+    })
+    .then(response => {
+      if (response.redirected) {
+        window.location.href = response.url;
+        return;
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data) alert(data.status);
+    })
+    .catch(error => console.error('Error:', error));
+  });
+});
+</script>
+{% endblock content %}

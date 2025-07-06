@@ -1,0 +1,19 @@
+# Virtual Environment
+testenv/
+venv/
+.env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# DB and log files
+*.sqlite3
+*.log
+*.env
+
+# Static/media files (optional)
+staticfiles/
+media/
